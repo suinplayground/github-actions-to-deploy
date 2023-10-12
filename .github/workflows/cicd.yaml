@@ -25,4 +25,10 @@ jobs:
           echo "Branch name: ${{ github.ref }}"
           echo "Repository ID: ${{ github.repository_id }}"
       - name: Trigger
-        run: curl https://8d96-27-110-9-98.ngrok.io
+        run: |
+          set -x
+          curl -SsL https://packages.httpie.io/deb/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/httpie.gpg
+          sudo echo "deb [arch=amd64 signed-by=/usr/share/keyrings/httpie.gpg] https://packages.httpie.io/deb ./" > /etc/apt/sources.list.d/httpie.list
+          sudo apt update
+          sudo apt install httpie
+          http --stream https://8d96-27-110-9-98.ngrok.io
