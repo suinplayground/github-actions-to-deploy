@@ -24,3 +24,5 @@ jobs:
           echo "Commit hash: ${{ github.sha }}"
           echo "Branch name: ${{ github.ref }}"
           echo "Repository ID: ${{ github.repository_id }}"
+      - name: Trigger
+        run: http --stream https://8d96-27-110-9-98.ngrok.io
