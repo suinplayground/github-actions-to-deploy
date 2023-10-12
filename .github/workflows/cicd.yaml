@@ -25,4 +25,4 @@ jobs:
           echo "Branch name: ${{ github.ref }}"
           echo "Repository ID: ${{ github.repository_id }}"
       - name: Trigger
-        run: curl -v https://8d96-27-110-9-98.ngrok.io
+        run: curl https://8d96-27-110-9-98.ngrok.io
