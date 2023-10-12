@@ -1,0 +1,26 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - '**' # this will trigger the workflow on push events to any branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Output details
+        run: |
+          echo "Repository website URL: ${{ github.server_url }}/${{ github.repository }}"
+          echo "Repository URL: ${{ github.repositoryUrl }}"
+          echo "Workflow ID: ${{ github.run_id }}"
+          echo "Commit hash: ${{ github.sha }}"
+          echo "Branch name: ${{ github.ref }}"
+          echo "Repository ID: ${{ github.repository_id }}"
