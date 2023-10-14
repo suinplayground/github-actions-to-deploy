@@ -1,17 +1,24 @@
 {
   "name": "github-actions-to-deploy",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "repository": "git@github.com:suinplayground/github-actions-to-deploy.git",
   "author": "suin <suinyeze@gmail.com>",
   "license": "MIT",
   "packageManager": "yarn@3.6.4",
   "dependencies": {
+    "@octokit/core": "^5.0.1",
+    "@types/koa": "^2.13.9",
+    "koa": "^2.14.2",
+    "koa-zod-router": "^2.1.0",
     "tsx": "^3.13.0",
+    "zod": "^3.22.4",
     "zx": "^7.2.3"
   },
   "devDependencies": {
     "@types/node": "^20.8.5",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
   }
 }
